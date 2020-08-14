@@ -4,6 +4,7 @@ import os
 import multiprocessing as mp
 import glob
 
+
 def process_page(page):
     print('processing page: ', page)
     soup = Helper.get_soup(page)
@@ -19,6 +20,7 @@ def process_page(page):
 
     csv_file.close()
 
+
 def merge_csv_files():
     all_filenames = [i for i in glob.glob('*.{}'.format('csv'))]
     with open('cars.csv', 'w', encoding='utf-8-sig') as outfile:
@@ -27,17 +29,22 @@ def merge_csv_files():
                 outfile.write(infile.read())
 
 
-os.chdir(os.getcwd() + "/data")
+def main():
+    data_path = os.path.join(os.getcwd(), 'data')
+    os.chdir(data_path)
 
-soup = Helper.get_soup(1)
-last_page = int(Helper.get_last_page(soup))
-print('Total pages: ', last_page)
+    soup = Helper.get_soup(1)
+    last_page = int(Helper.get_last_page(soup))
+    print('Total pages: ', last_page)
 
-page_array = [(page,) for page in range(1, last_page+1)]
-pool = mp.Pool(32)
-pool.starmap(process_page, page_array)
+    page_array = [(page,) for page in range(1, last_page + 1)]
+    pool = mp.Pool(32)
+    pool.starmap(process_page, page_array)
+    print('Done scrapping data.')
 
-print('Done scrapping data.')
+    merge_csv_files()
+    print('Done merging.')
 
-merge_csv_files()
-print('Done merging.')
+
+if __name__== "__main__":
+    main()

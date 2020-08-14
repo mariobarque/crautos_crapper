@@ -1,5 +1,48 @@
 class Constants:
-    url = "http://crautos.com/rautosusados/searchresults.cfm"
-    base_car_url = "http://crautos.com/rautosusados/cardetail.cfm?c="
-    headers = {'content-type': "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW", 'cache-control': "no-cache", 'postman-token': "7daf0729-45e4-6dcd-5c8d-91be1b8f6a78" }
-    payloadTemplate = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"brand\"\r\n\r\n00\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"financed\"\r\n\r\n00\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"yearfrom\"\r\n\r\n1960\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"yearto\"\r\n\r\n2020\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"pricefrom\"\r\n\r\n100000\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"priceto\"\r\n\r\n200000000\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"style\"\r\n\r\n00\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"province\"\r\n\r\n0\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"doors\"\r\n\r\n0\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"orderby\"\r\n\r\n0\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"fuel\"\r\n\r\n00\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"trans\"\r\n\r\n0\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"recibe\"\r\n\r\n0\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"modelstr\"\r\n\r\n\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"p\"\r\n\r\n%d\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
+    url = "https://crautos.com/autosusados/searchresults.cfm"
+    base_car_url = "https://crautos.com/autosusados/cardetail.cfm?c="
+
+    request_cookies = {
+        '_ga': 'GA1.2.1086318761.1590757962',
+        '_fbp': 'fb.1.1590757962289.248230899',
+        '__gads': 'ID=fe8060fa0c0f6082:T=1590757975:S=ALNI_MZC_qkGTHGHfSVyeLa-J_sVz3G9SQ',
+        '__auc': 'feaaa7fe1726090fe89574321ea',
+        '_fbc': 'fb.1.1597238745016.IwAR1oKmwcuzq4lIGQpq60OVOUFb1wxlmXMFEEW6xtX__ka8nc_5lB5y7p-F0',
+        '_gid': 'GA1.2.2010079522.1597367155',
+        '_gat': '1',
+    }
+
+    request_headers = {
+        'Connection': 'keep-alive',
+        'Pragma': 'no-cache',
+        'Cache-Control': 'no-cache',
+        'Upgrade-Insecure-Requests': '1',
+        'Origin': 'https://crautos.com',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'Sec-Fetch-Site': 'same-origin',
+        'Sec-Fetch-Mode': 'navigate',
+        'Sec-Fetch-User': '?1',
+        'Sec-Fetch-Dest': 'document',
+        'Referer': 'https://crautos.com/autosusados/',
+        'Accept-Language': 'en-US,en;q=0.9',
+    }
+
+    request_data = {
+      'brand': '00',
+      'modelstr': '',
+      'style': '00',
+      'fuel': '0',
+      'trans': '0',
+      'financed': '00',
+      'recibe': '0',
+      'province': '0',
+      'doors': '0',
+      'yearfrom': '1960',
+      'yearto': '2020',
+      'pricefrom': '100000',
+      'priceto': '200000000',
+      'orderby': '0',
+      'lformat': '0'
+    }
