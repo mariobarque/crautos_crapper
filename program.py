@@ -3,7 +3,7 @@ from carparser import CarParser
 import os
 import multiprocessing as mp
 import glob
-
+from constants import Constants
 
 def process_page(page):
     print('processing page: ', page)
@@ -14,9 +14,9 @@ def process_page(page):
     for id_checkbox in ids_checkbox:
         car_id = id_checkbox.attrs['value']
         car = CarParser.parse_car(car_id)
-        csv = car.get_csv()
-
-        csv_file.write(csv)
+        if car is not None:
+            csv = car.get_csv()
+            csv_file.write(csv)
 
     csv_file.close()
 
@@ -24,9 +24,12 @@ def process_page(page):
 def merge_csv_files():
     all_filenames = [i for i in glob.glob('*.{}'.format('csv'))]
     with open('cars.csv', 'w', encoding='utf-8-sig') as outfile:
+        outfile.write(Constants.csv_header)
         for name in all_filenames:
             with open(name, encoding='utf-8-sig') as infile:
                 outfile.write(infile.read())
+            
+            os.remove(name)
 
 
 def main():

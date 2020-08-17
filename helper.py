@@ -18,7 +18,15 @@ class Helper:
 
     @staticmethod
     def get_soup(page):
-        payload = Helper.get_payload_for_page(page)
-        response = requests.request("POST", Constants.url, data=payload, headers=Constants.headers)
+        response = requests.post(Constants.url + "?p=" + str(page), headers=Constants.request_headers,
+                                 cookies=Constants.request_cookies, data=Constants.request_data)
         soup = BeautifulSoup(response.text, 'html.parser')
         return soup
+
+    @staticmethod
+    def remove_non_numeric_values(val):
+        numeric_filter = filter(str.isdigit, val)
+        numeric_string = "".join(numeric_filter)
+        if numeric_string == "":
+            return ""
+        return int(numeric_string)

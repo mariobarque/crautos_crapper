@@ -45,7 +45,7 @@ data = {
   'lformat': '0'
 }
 
-response = requests.post('https://crautos.com/autosusados/searchresults.cfm', headers=headers, cookies=cookies, data=data)
+response = requests.post('https://crautos.com/autosusados/searchresults.cfm?p=2', headers=headers, cookies=cookies, data=data)
 
 print(response.text)
 

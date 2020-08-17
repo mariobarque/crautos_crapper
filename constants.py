@@ -1,6 +1,9 @@
 class Constants:
     url = "https://crautos.com/autosusados/searchresults.cfm"
     base_car_url = "https://crautos.com/autosusados/cardetail.cfm?c="
+    csv_header = '"id","marca","modelo","año","moderno","cilindrada","estilo","combustible","transmisión","estado",' \
+                 '"kilometraje","puertas","pago impuesto","negociable","recibe vehículo","fecha ingreso",' \
+                 '"veces visto","comentarios","tiene imagen","precio"\n'
 
     request_cookies = {
         '_ga': 'GA1.2.1086318761.1590757962',
